@@ -22,14 +22,19 @@ def lucky_number():
 
 @app.route('/form')
 def show_form():
+    return render_template("form.html")
     # add your code here
-    pass
+    
 
 
 @app.route('/greet')
 def offer_greeting():
+    player = request.args.get("person")
+    nice_thing = choice(COMPLIMENTS)
+    return render_template("compliment.html", name = player, 
+        compliment = nice_thing)
     # add your code here
-    pass
+    
 
 
 if __name__ == "__main__":
